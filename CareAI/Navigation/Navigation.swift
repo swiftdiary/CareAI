@@ -27,11 +27,13 @@ final class AppNavigation: ObservableObject {
 
 enum NavigationOption: Hashable {
     case aiCare
+    case appointmentDetail(Appointment)
     
     @ViewBuilder
     var destination: some View {
         switch self {
         case .aiCare: Text("des")
+        case .appointmentDetail(let appointment): AppointmentDetailView(appointment: appointment)
         }
     }
 }
@@ -55,9 +57,9 @@ enum TabBarOption: Hashable, CaseIterable {
     
     var iconName: String {
         switch self {
-        case .home: "tab.home"
-        case .messages: "tab.messages"
-        case .schedules: "tab.schedules"
+        case .home: "house"
+        case .messages: "message"
+        case .schedules: "calendar.circle"
         }
     }
 }

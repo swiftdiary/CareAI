@@ -30,11 +30,12 @@ struct CustomTab_Nav: View {
                     HStack {
                         ForEach(TabBarOption.allCases, id: \.self) { option in
                             VStack(spacing: 5) {
-                                Image("\(option.iconName)\(selection == option ? ".fill" : "")")
+                                Image(systemName: "\(option.iconName)")
                                     .resizable()
                                     .scaledToFit()
+                                    .symbolVariant(selection == option ? SymbolVariants.fill : SymbolVariants.none)
                                     .frame(width: 30, height: 30)
-                                    .foregroundStyle(selection == option ? .accent : .primary)
+                                    .foregroundStyle(selection == option ? Color.accentColor : Color.secondary)
                                 if selection == option {
                                     Circle()
                                         .fill(Color.accentColor)

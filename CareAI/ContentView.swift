@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var navigationVM: AppNavigation = AppNavigation()
     var body: some View {
-        VStack {
-            
-        }
-        .padding()
+        CustomTab_Nav()
+            .environmentObject(navigationVM)
     }
 }
 

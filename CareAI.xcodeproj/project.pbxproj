@@ -20,6 +20,13 @@
 		CAA6A3592B8094F000B3D425 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A3582B8094F000B3D425 /* HomeViewModel.swift */; };
 		CAA6A35B2B80956D00B3D425 /* MessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A35A2B80956D00B3D425 /* MessagesViewModel.swift */; };
 		CAA6A35D2B80958300B3D425 /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A35C2B80958300B3D425 /* SchedulesViewModel.swift */; };
+		CAA6A3602B80E39B00B3D425 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A35F2B80E39B00B3D425 /* Doctor.swift */; };
+		CAA6A3632B80E40A00B3D425 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A3622B80E40A00B3D425 /* NetworkManager.swift */; };
+		CAA6A3662B80F66A00B3D425 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A3652B80F66A00B3D425 /* Appointment.swift */; };
+		CAA6A3692B81461F00B3D425 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A3682B81461F00B3D425 /* Utils.swift */; };
+		CAA6A36B2B81468900B3D425 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A36A2B81468900B3D425 /* Date+Extensions.swift */; };
+		CAA6A36D2B814F7300B3D425 /* AppointmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A36C2B814F7300B3D425 /* AppointmentDetailView.swift */; };
+		CAA6A36F2B8158AD00B3D425 /* AppointmentDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6A36E2B8158AD00B3D425 /* AppointmentDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +44,13 @@
 		CAA6A3582B8094F000B3D425 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CAA6A35A2B80956D00B3D425 /* MessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewModel.swift; sourceTree = "<group>"; };
 		CAA6A35C2B80958300B3D425 /* SchedulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
+		CAA6A35F2B80E39B00B3D425 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		CAA6A3622B80E40A00B3D425 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CAA6A3652B80F66A00B3D425 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		CAA6A3682B81461F00B3D425 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		CAA6A36A2B81468900B3D425 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		CAA6A36C2B814F7300B3D425 /* AppointmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailView.swift; sourceTree = "<group>"; };
+		CAA6A36E2B8158AD00B3D425 /* AppointmentDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +86,10 @@
 				CAA6A3362B808AEC00B3D425 /* CareAIApp.swift */,
 				CAA6A3382B808AEC00B3D425 /* ContentView.swift */,
 				CAA6A3442B808BCE00B3D425 /* Launch Screen.storyboard */,
+				CAA6A3672B81461800B3D425 /* Utils */,
+				CAA6A3612B80E3FF00B3D425 /* Network */,
+				CAA6A35E2B80E39300B3D425 /* Doctor */,
+				CAA6A3642B80F65E00B3D425 /* Appointment */,
 				CAA6A3532B808CF200B3D425 /* Navigation */,
 				CAA6A3462B808C6800B3D425 /* Home */,
 				CAA6A3482B808C8800B3D425 /* Messages */,
@@ -124,6 +142,41 @@
 				CAA6A3562B808D6200B3D425 /* CustomTab+Nav.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		CAA6A35E2B80E39300B3D425 /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				CAA6A35F2B80E39B00B3D425 /* Doctor.swift */,
+			);
+			path = Doctor;
+			sourceTree = "<group>";
+		};
+		CAA6A3612B80E3FF00B3D425 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CAA6A3622B80E40A00B3D425 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CAA6A3642B80F65E00B3D425 /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				CAA6A3652B80F66A00B3D425 /* Appointment.swift */,
+				CAA6A36C2B814F7300B3D425 /* AppointmentDetailView.swift */,
+				CAA6A36E2B8158AD00B3D425 /* AppointmentDetailViewModel.swift */,
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		CAA6A3672B81461800B3D425 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CAA6A3682B81461F00B3D425 /* Utils.swift */,
+				CAA6A36A2B81468900B3D425 /* Date+Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,10 +250,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA6A3662B80F66A00B3D425 /* Appointment.swift in Sources */,
+				CAA6A3632B80E40A00B3D425 /* NetworkManager.swift in Sources */,
+				CAA6A3602B80E39B00B3D425 /* Doctor.swift in Sources */,
+				CAA6A36F2B8158AD00B3D425 /* AppointmentDetailViewModel.swift in Sources */,
+				CAA6A36D2B814F7300B3D425 /* AppointmentDetailView.swift in Sources */,
+				CAA6A3692B81461F00B3D425 /* Utils.swift in Sources */,
 				CAA6A35B2B80956D00B3D425 /* MessagesViewModel.swift in Sources */,
 				CAA6A3572B808D6200B3D425 /* CustomTab+Nav.swift in Sources */,
 				CAA6A34C2B808CB400B3D425 /* HomeView.swift in Sources */,
 				CAA6A34E2B808CCC00B3D425 /* ScheduleView.swift in Sources */,
+				CAA6A36B2B81468900B3D425 /* Date+Extensions.swift in Sources */,
 				CAA6A3592B8094F000B3D425 /* HomeViewModel.swift in Sources */,
 				CAA6A3552B808D0100B3D425 /* Navigation.swift in Sources */,
 				CAA6A3522B808CE600B3D425 /* MessagesView.swift in Sources */,

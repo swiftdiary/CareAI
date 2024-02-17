@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MessagesView.swift
 //  CareAI
 //
 //  Created by Akbar Khusanbaev on 17/02/24.
@@ -7,15 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MessagesView: View {
     var body: some View {
-        VStack {
-            
-        }
-        .padding()
+        Text("Hello, World!")
     }
 }
 
 #Preview {
-    ContentView()
+    MessagesView()
 }

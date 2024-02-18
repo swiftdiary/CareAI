@@ -28,12 +28,22 @@ final class AppNavigation: ObservableObject {
 enum NavigationOption: Hashable {
     case aiCare
     case appointmentDetail(Appointment)
+    case aiChatbot
+    case results(SymptomResponse)
+    case analyzeSymptoms
+    case analyzeXrayMri
+    case analyze
     
     @ViewBuilder
     var destination: some View {
         switch self {
-        case .aiCare: Text("des")
+        case .aiCare: AICareView()
         case .appointmentDetail(let appointment): AppointmentDetailView(appointment: appointment)
+        case .aiChatbot: AIChatbotView()
+        case .results(let response): AnalysisResultsView(symptomReponse: response)
+        case .analyzeSymptoms: AnalyzeSymptomsView()
+        case .analyzeXrayMri: AnalyzeXrayMriView()
+        case .analyze: MRIAnalysisView()
         }
     }
 }

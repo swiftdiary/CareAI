@@ -16,8 +16,8 @@ struct AICareView: View {
                 .frame(width: 200)
             Text("Hey! Please select the best option")
                 .font(.headline)
-            NavigationLink(value: NavigationOption.aiCare) {
-                Text("AI Care")
+            NavigationLink(value: NavigationOption.analyzeXrayMri) {
+                Text("Analyze X-Ray/MRI Images")
                     .font(.headline)
                     .frame(height: 45)
                     .frame(maxWidth: .infinity)
@@ -28,8 +28,8 @@ struct AICareView: View {
             }
             .foregroundStyle(.white)
             .padding()
-            NavigationLink(value: NavigationOption.aiCare) {
-                Text("AI Care")
+            NavigationLink(value: NavigationOption.aiChatbot) {
+                Text("AI Medic Chatbot")
                     .font(.headline)
                     .frame(height: 45)
                     .frame(maxWidth: .infinity)
@@ -40,8 +40,8 @@ struct AICareView: View {
             }
             .foregroundStyle(.white)
             .padding()
-            NavigationLink(value: NavigationOption.aiCare) {
-                Text("AI Care")
+            NavigationLink(value: NavigationOption.analyzeSymptoms) {
+                Text("Symptoms Analysis")
                     .font(.headline)
                     .frame(height: 45)
                     .frame(maxWidth: .infinity)

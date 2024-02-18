@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AnalyzeSymptomsView: View {
+    @EnvironmentObject private var navigation: AppNavigation
     @StateObject private var analyzeSymptomsVM = AnalyzeSymptomsViewModel()
     
     var body: some View {
@@ -29,7 +30,22 @@ struct AnalyzeSymptomsView: View {
                     }
                     .padding()
                 Button(action: {
-                    
+                    Task {
+//                        do {
+//                            try await analyzeSymptomsVM.analyzeSymptoms()
+//                        } catch {
+//                            print(error)
+//                        }
+                        analyzeSymptomsVM.analyzeSymptomsWithCompletion(completion: {symptom,error in
+                            if let error {
+                                print(error)
+                            } else if let symptom {
+                                DispatchQueue.main.async {
+                                    navigation.path.append(.results(symptom))
+                                }
+                            }
+                        })
+                    }
                 }, label: {
                     Text("Analyze")
                         .font(.headline)
@@ -45,6 +61,11 @@ struct AnalyzeSymptomsView: View {
             }
             .scrollDismissesKeyboard(.immediately)
         }
+//        .onChange(of: analyzeSymptomsVM.symptomResponse, { oldValue, newValue in
+//            if let newValue {
+//                navigation.path.append(.results(newValue))
+//            }
+//        })
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text("Symptoms Analysis")

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Doctor: Identifiable, Codable {
+struct Doctor: Identifiable, Codable, Hashable {
     var id: Int
     var organization: String
     var category: String
@@ -36,7 +36,7 @@ struct Doctor: Identifiable, Codable {
         case createdAt = "created_at"
     }
     
-    struct GeoLocation: Codable {
+    struct GeoLocation: Codable, Hashable {
         var latitude: Double
         var longitude: Double
     }

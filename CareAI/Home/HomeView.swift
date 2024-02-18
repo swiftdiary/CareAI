@@ -52,22 +52,24 @@ struct HomeView: View {
                 .frame(height: 2)
             HStack {
                 ForEach(ServiceName.allCases, id: \.self) { service in
-                    VStack(spacing: 10) {
-                        Image(service.icon)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 32, height: 32)
-                        Text(service.title)
-                            .font(.headline)
+                    NavigationLink(value: service.destinationValue) {
+                        VStack(spacing: 10) {
+                            Image(service.icon)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 32, height: 32)
+                            Text(service.title)
+                                .font(.headline)
+                        }
+                        .foregroundStyle(.white)
+                        .frame(width: 85)
+                        .padding(10)
+                        .background {
+                            RoundedRectangle(cornerRadius: 12.0)
+                                .fill(Color.accentColor)
+                        }
+                        .frame(maxWidth: .infinity)
                     }
-                    .foregroundStyle(.white)
-                    .frame(width: 85)
-                    .padding(10)
-                    .background {
-                        RoundedRectangle(cornerRadius: 12.0)
-                            .fill(Color.accentColor)
-                    }
-                    .frame(maxWidth: .infinity)
                 }
             }
             .padding()

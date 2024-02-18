@@ -9,7 +9,8 @@ import SwiftUI
 
 struct AppointmentDetailView: View {
     @StateObject private var appointmentDetailVM = AppointmentDetailViewModel()
-    
+    @State private var isShowModal: Bool = false
+    @State private var modalImage: String = ""
     let appointment: Appointment
     
     
@@ -28,6 +29,17 @@ struct AppointmentDetailView: View {
                 Text("Appointment")
                     .font(.title2.bold())
             }
+        }
+        .navigationDestination(isPresented: $isShowModal) {
+            AsyncImage(url: URL(string: modalImage)) { img in
+                img
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 300)
+            } placeholder: {
+                ProgressView()
+            }
+
         }
     }
     
@@ -143,6 +155,10 @@ struct AppointmentDetailView: View {
                             .font(.headline)
                     }
                     .padding()
+                    .onTapGesture(perform: {
+                        modalImage = mriImage
+                        isShowModal = true
+                    })
                 }
                 Spacer()
                 if let xRayImage = appointment.xRayImage {
@@ -156,6 +172,10 @@ struct AppointmentDetailView: View {
                             .font(.headline)
                     }
                     .padding()
+                    .onTapGesture(perform: {
+                        modalImage = xRayImage
+                        isShowModal = true
+                    })
                 }
             }
         }

@@ -42,6 +42,14 @@ enum ServiceName: Hashable, CaseIterable {
         case .pharmacy: "PharmacyServiceIcon"
         }
     }
+    
+    var destinationValue: NavigationOption {
+        switch self {
+        case .doctors: NavigationOption.aiCare
+        case .aiCare: NavigationOption.aiCare
+        case .pharmacy: NavigationOption.aiCare
+        }
+    }
 }
 
 enum HomeViewModelError: Error {

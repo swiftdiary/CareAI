@@ -9,7 +9,7 @@ import Foundation
 
 final class NetworkManager {
     static let shared = NetworkManager()
-    static let baseURL = "https://careai.onrender.com"
+    static let baseURL = "http://95.165.28.113:9000"
     private init() { }
     
     private func createURL(path: String, queries: [String: String]?) -> URL {
@@ -22,7 +22,6 @@ final class NetworkManager {
     private func createRequest(url: URL, method: String, jsonBody: [String: Any]? = nil) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method
-        
         if let jsonBody = jsonBody {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: jsonBody)
@@ -30,14 +29,13 @@ final class NetworkManager {
                 print("Error serializing JSON: \(error)")
             }
         }
-        
         return request
     }
     
     private func configureRequest<T: Decodable>(request: inout URLRequest, asType: T.Type?) {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         if asType != nil {
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue("*/*", forHTTPHeaderField: "Accept")
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
     }

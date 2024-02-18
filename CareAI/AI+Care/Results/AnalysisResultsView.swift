@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AnalysisResultsView: View {
+    let symptomReponse: SymptomResponse
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -16,7 +18,7 @@ struct AnalysisResultsView: View {
                     .scaledToFit()
                     .frame(width: 250)
                 VStack(spacing: 20) {
-                    Text("Oh... It Seems you have a <Illness>")
+                    Text("Oh... It Seems you have a \(symptomReponse.disease ?? "Unknown")")
                         .font(.headline)
                     Text("We recommend you to schedule an appointment with...")
                         .foregroundStyle(.secondary)
@@ -36,55 +38,58 @@ struct AnalysisResultsView: View {
     @ViewBuilder
     func DoctorsList() -> some View {
         VStack {
-            // ForEach...
-            HStack {
-                Image(.doctor)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 80, height: 80)
-                    .padding(10)
-                    .background {
-                        Circle()
-                            .fill(Color.green.gradient)
-                    }
-                VStack(alignment: .leading) {
-                    Text("Dr. Dre dre")
-                        .font(.headline)
-                    Text("Cordiologist")
-                        .foregroundStyle(.secondary)
+            if let doctors = symptomReponse.recommendedDoctors {
+                ForEach(doctors) {doc in
                     HStack {
-                        HStack {
-                            Image(systemName: "star.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 14, height: 14)
-                            Text("4.9")
+                        Image(.doctor)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 80, height: 80)
+                            .padding(10)
+                            .background {
+                                Circle()
+                                    .fill(Color.green.gradient)
+                            }
+                        VStack(alignment: .leading) {
+                            Text(doc.fullName)
+                                .font(.headline)
+                            Text(doc.description)
+                                .foregroundStyle(.secondary)
+                            HStack {
+                                HStack {
+                                    Image(systemName: "star.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 14, height: 14)
+                                    Text("4.9")
+                                }
+                                .font(.subheadline)
+                                .foregroundStyle(Color.accentColor)
+                                .padding(4.0)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 6.0)
+                                        .fill(Color.accentColor.opacity(0.3))
+                                }
+                                Text("800m away")
+                                    .foregroundStyle(.secondary)
+                            }
                         }
-                        .font(.subheadline)
-                        .foregroundStyle(Color.accentColor)
-                        .padding(4.0)
-                        .background {
-                            RoundedRectangle(cornerRadius: 6.0)
-                                .fill(Color.accentColor.opacity(0.3))
-                        }
-                        Text("800m away")
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background {
+                        RoundedRectangle(cornerRadius: 50.0)
+                            .stroke(lineWidth: 1.0)
                             .foregroundStyle(.secondary)
                     }
+                    .padding(.horizontal)
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background {
-                RoundedRectangle(cornerRadius: 50.0)
-                    .stroke(lineWidth: 1.0)
-                    .foregroundStyle(.secondary)
-            }
-            .padding(.horizontal)
         }
     }
 }
 
 #Preview {
     NavigationStack {
-        AnalysisResultsView()
+        AnalysisResultsView(symptomReponse: SymptomResponse(diseaseCategory: "", disease: "", recommendedDoctors: [Doctor(id: 0, organization: "", category: "", fullName: "", rating: "", description: "", price: "", phoneNumber: "", updatedAt: "", createdAt: "")]))
     }
 }

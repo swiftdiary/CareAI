@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct AnalyzeXrayMriView: View {
+    @EnvironmentObject private var navigation: AppNavigation
     @StateObject private var analyzeXrayMriVM = AnalyzeXrayMriViewModel()
     
     var body: some View {
@@ -57,7 +58,7 @@ struct AnalyzeXrayMriView: View {
                 }
             }
             Button(action: {
-                
+                navigation.path.append(.analyze)
             }, label: {
                 Text("Analyze")
                     .font(.headline)

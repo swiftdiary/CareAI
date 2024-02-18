@@ -10,7 +10,7 @@ import Foundation
 final class OpenAIManager {
     static let shared = OpenAIManager()
     static let baseURL = "https://api.openai.com"
-    static let openAIToken = "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"
+    static let openAIToken = "OPEN_AI_KEY" //"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"
     private init() { }
     
     private func createURL(path: String, queries: [String: String]?) -> URL {
